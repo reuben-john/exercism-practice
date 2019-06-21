@@ -41,14 +41,17 @@ export const decode = compressedCode => {
   if (compressedCode.length < 1) return "";
   else if (compressedCode.length == 1) return compressedCode;
 
+  // split codes into number + letter, preserving spaces
   let rawCode = [];
   let reg = /([\d]*?[\s]*?[\D])/g;
   let splitCodes = compressedCode.split(reg);
 
   for (let i = 0; i < splitCodes.length; i++) {
+    // if code has no number, just keep it as is
     let snippet = splitCodes[i];
     if (snippet.length <= 1) rawCode.push(snippet);
     else {
+      // create string containing number of letters
       let joinedChars = "";
       let char = snippet[snippet.length - 1];
       let count = snippet.slice(0, snippet.length - 1);
