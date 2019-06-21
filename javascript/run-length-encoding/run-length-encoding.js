@@ -37,5 +37,29 @@ export const encode = rawCode => {
 };
 
 export const decode = compressedCode => {
-  throw new Error("Remove this statement and implement this function");
+  // check string is not empty or single char
+  if (compressedCode.length < 1) return "";
+  else if (compressedCode.length == 1) return compressedCode;
+
+  let rawCode = [];
+  let reg = /([\d]*?[\s]*?[\D])/g;
+  let splitCodes = compressedCode.split(reg);
+
+  for (let i = 0; i < splitCodes.length; i++) {
+    let snippet = splitCodes[i];
+    if (snippet.length <= 1) rawCode.push(snippet);
+    else {
+      let joinedChars = "";
+      let char = snippet[snippet.length - 1];
+      let count = snippet.slice(0, snippet.length - 1);
+      for (let x = 0; x < parseInt(count); x++) {
+        joinedChars += char;
+      }
+      rawCode.push(joinedChars);
+    }
+  }
+
+  // Count number of repeated letters and tally them.
+
+  return rawCode.join("");
 };
