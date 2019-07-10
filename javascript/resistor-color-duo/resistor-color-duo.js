@@ -3,10 +3,15 @@
 // convenience to get you started writing code faster.
 //
 
+// export const value = colors => {
+//   let code1 = COLORS.indexOf(colors[0]).toString();
+//   let code2 = COLORS.indexOf(colors[1]).toString();
+//   return parseInt(code1 + code2);
+// };
+
 export const value = colors => {
-  let code1 = COLORS.indexOf(colors[0]).toString();
-  let code2 = COLORS.indexOf(colors[1]).toString();
-  return parseInt(code1 + code2);
+  let codes = colors.map(color => COLORS.indexOf(color));
+  return parseInt(codes.join(""));
 };
 
 export const COLORS = [
