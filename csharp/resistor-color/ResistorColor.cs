@@ -9,6 +9,21 @@ public static class ResistorColor
 
     public static string[] Colors()
     {
-        return new[] { "black", "brown", "red", "orange", "yellow", "green", "blue", "violet", "grey", "white" };
+        return Color2;
+    }
+    static string[] Color2 = Enum.GetNames(typeof(ColorsEnum));
+    private enum ColorsEnum : byte
+    {
+        black = 0,
+        brown = 1,
+        red = 2,
+        orange = 3,
+        yellow = 4,
+        green = 5,
+        blue = 6,
+        violet = 7,
+        grey = 8,
+        white = 9
+
     }
 }
