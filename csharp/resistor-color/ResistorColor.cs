@@ -4,15 +4,14 @@ public static class ResistorColor
 {
     public static int ColorCode(string color)
     {
-        return Array.IndexOf(Colors(), color);
+        return (int)Enum.Parse(typeof(ColorsEnum), color);
     }
 
     public static string[] Colors()
     {
-        return Color2;
+        return Enum.GetNames(typeof(ColorsEnum));
     }
-    static string[] Color2 = Enum.GetNames(typeof(ColorsEnum));
-    private enum ColorsEnum : byte
+    private enum ColorsEnum
     {
         black = 0,
         brown = 1,
