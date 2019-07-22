@@ -9,7 +9,7 @@ public class HighScores
     public HighScores(List<int> list) => _highScores = new List<int>(list);
 
 
-    public List<int> Scores() => _highScores;
+    public List<int> Scores() => _highScores.ToList();
 
 
     public int Latest() => _highScores.Last();
